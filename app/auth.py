@@ -1,9 +1,9 @@
 from passlib.context import CryptContext
 from jose import JWTError,jwt
 from datetime import datetime,timedelta
-from config import SECRET_KEY,ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES
+from .config import SECRET_KEY,ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES
 from sqlalchemy.orm import Session
-import models, schemas
+import app.models as models
 
 pwd_context = CryptContext(schemes=["bcrypt"],deprecated="auto")
 

@@ -1,13 +1,13 @@
 from fastapi import FastAPI, Depends, WebSocket, WebSocketDisconnect, HTTPException
 from sqlalchemy.orm import Session
-from auth import hash_password, create_access_table, authenticate_user
-from dependencies import get_current_user, get_db,require_role
-import models,schemas
-from database import engine, Base
+from .auth import hash_password, create_access_table, authenticate_user
+from .dependencies import get_current_user, get_db,require_role
+from . import models,schemas
+from .database import engine, Base
 from fastapi.security import OAuth2PasswordRequestForm
 from jose import JWTError,jwt
-from config import SECRET_KEY, ALGORITHM
-from chat_manager import ConnectionManager
+from .config import SECRET_KEY, ALGORITHM
+from .chat_manager import ConnectionManager
 import json
 
 
