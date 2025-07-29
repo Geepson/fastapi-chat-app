@@ -8,7 +8,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 from jose import JWTError,jwt
 from .config import SECRET_KEY, ALGORITHM
 from .chat_manager import ConnectionManager
-import json
+import uvicorn
 
 
 app = FastAPI()
@@ -90,4 +90,8 @@ def create_room(room_data:schemas.RoomCreate, db:Session=Depends(get_db)):
     db.add(room)
     db.commit()
     return {"message":f"Room '{room.name}' created"}
+
+
+if __name__ == "__main__":
+    uvicorn.run(app,port=8000)
 
